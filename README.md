@@ -25,8 +25,12 @@ I half finished this to help me migrate gift cards from our legacy system when m
 #### Settings
 All that is required are your Private App's API Key and Password from the step above and your xxxx.myshopify.com domain (just the xxxx bit).
 
+[Screenshot-1]
+
 #### Inputting Cards to Be Generated
 Five columns are used to form the body of the post to the API:
+
+[Screenshot-2]
 
   - ##### Value
    The tool will create a voucher for every row in the Value column with a something entered. Technically this is the only required column, although it is hard to imagine a use case for just creating batches of Gift Cards with randomly generated codes.
@@ -50,3 +54,6 @@ You really shouldn't download and run XLSM files from the internet, ever. It wou
 As a minimal security step the VBA strips the values from the cells containing API credentials on both file open and close, it is slightly annoying to input each them each time, but far less annoying than someone going rogue with the gift card api on your store!
 
 You can download the XLSM file from this repository and it will work fine, but you shouldn't and I told you not to.
+
+[Screenshot-1]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-1.png
+[Screenshot-2]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-2.png
