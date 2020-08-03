@@ -25,12 +25,14 @@ I half finished this to help me migrate gift cards from our legacy system when m
 #### Settings
 All that is required are your Private App's API Key and Password from the step above and your xxxx.myshopify.com domain (just the xxxx bit).
 
-[Screenshot-1]
+<img src="https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-1.png" width="400px" />
+
+(No, I haven't uploaded valid credentials in a screenshot here, don't worry!)
 
 #### Inputting Cards to Be Generated
 Five columns are used to form the body of the post to the API:
 
-[Screenshot-2]
+![Screenshot-2]
 
   - ##### Value
    The tool will create a voucher for every row in the Value column with a something entered. Technically this is the only required column, although it is hard to imagine a use case for just creating batches of Gift Cards with randomly generated codes.
