@@ -42,8 +42,8 @@ Five columns are used to form the body of the post to the API:
   When you assign a gift card to an existing customer it is sent to them via email immediately on creation, if you have their mobile/cell number in Shopify they will also be delivered via SMS.
 
 ## Security
-You really shouldn't download and run XLSM files from the internet ever. It would be pretty easy for me to have added a line in here that sends me gift card codes for your store. The VBA code that is used is [here in the SRC folder]() and ideally you or someone in your oranization who understands it should check the code and create your own local version based on it.
+You really shouldn't download and run XLSM files from the internet, ever. It would be pretty easy for me to have added a line in here that sends me gift card codes for your store (I didn't). The VBA code that is used is [here in the SRC folder]() and ideally you or someone in your oranization who understands it should check the code and create your own local version based on it.
 
 As a minimal security step the VBA strips the values from the cells containing API credentials on both file open and close, it is slightly annoying to input each them each time, but far less annoying than your disgruntled intern going rogue with the gift card api on your store!
 
-You can download the XLSM file from this repository and it will work fine, but you shouldn't and I told you not you.
+You can download the XLSM file from this repository and it will work fine, but you shouldn't and I told you not to.
