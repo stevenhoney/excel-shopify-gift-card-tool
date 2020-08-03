@@ -51,11 +51,11 @@ Five columns are used to create each gift card and form the body of each post to
 The VBA script has a 0.5 second ause built in between calls (eg creating 100 gift cards should take just over 50 seconds~). At some upper number you will eventually hit a limit, I haven't dug into what that would be. At a total guess-timate creating a batch of a 1000 shouldn't be an issue, 10,000 might start stretching things? The script will show in the 'Tool Status' column clearly on what row/call any limit is reached - you could then delete the successful lines, wait a little and re-run again, repeat until done.
 
 ## Security
-You really shouldn't download and run XLSM files from the internet, ever. It would be pretty easy for me to have added a line in here that sends me gift card codes for your store (I didn't). The VBA code that is used is uploaded here and ideally you or someone in your oranization who understands VBA should check the code and create your own local version based upon it.
+You really shouldn't download and run XLSM files from the internet, ever. It would be pretty easy for me to have added a line in here that sends me gift card codes for your store (I didn't). The VBA code that is used is uploaded here as a .bas file and ideally you or someone in your organization who understands VBA a little should check the code and create your own local version based upon it.
 
-As a minimal security step the VBA strips the values from the cells containing API credentials on both file open and close, it is slightly annoying to input each them each time, but far less annoying than someone going rogue with the gift card api on your store!
+As a minimal security step the VBA strips the values from the cells containing API credentials on both file open and close, it is slightly annoying to input them each time, but far less annoying than someone going rogue with the gift card api on your store!
 
-You can download the XLSM file from this repository and it will work fine, but you shouldn't and I told you not to.
+You can download the XLSM file from this repository and it will work fine, but you shouldn't and I told you not to :grin:
 
 [Screenshot-1]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-1.png
 [Screenshot-2]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-2.png
