@@ -37,9 +37,12 @@ Five columns are used to form the body of the post to the API:
   - ##### Template
   Like `gift_card.birthday.liquid` Shopify gift card liquid templates are effectively standalone HTML pages, a template with a "Happy Birthday" message is an obvious example.
   - ##### Shopify Customer ID
-  Like `` This is the number after the last / in the URL when viewing the customer record in the Shopify admin. Unfortunately Shopify does not include this in their default customer export, so a 3rd party app is needed in order to export Customer IDs to be used to assign gift cards to customers. I use and highly recommend [Excelify.io](https://excelify.io/) but there are [lots of alternatives](https://apps.shopify.com/search?q=csv+export#).
+  Like `3363246964811` This is the number after the last / in the URL when viewing the customer record in the Shopify admin. Unfortunately Shopify does not include this in their default customer export, so a 3rd party app is needed in order to export Customer IDs to be used to assign gift cards to customers. I use and highly recommend [Excelify.io](https://excelify.io/) but there are [lots of alternatives](https://apps.shopify.com/search?q=csv+export#).
   
   When you assign a gift card to an existing customer it is sent to them via email immediately on creation, if you have their mobile/cell number in Shopify they will also be delivered via SMS.
+  
+## API Rate Limiting
+The VBA script has a 0.5 second ause built in between calls (eg creating 100 gift cards should take just over 50 seconds~). At some theoretical upper limit you would hit a limit, I haven't dug into what that would be. At a total guess-timate creating a batch of a 1000 shouldn't be an issue, 10,000 might start stretching things? The script will show in the 'Tool Status' column clearly on what row/call any limit is reached - you could then delete the successful lines, wait a little and re-run again, repeat until done.
 
 ## Security
 You really shouldn't download and run XLSM files from the internet, ever. It would be pretty easy for me to have added a line in here that sends me gift card codes for your store (I didn't). The VBA code that is used is [here in the SRC folder]() and ideally you or someone in your oranization who understands it should check the code and create your own local version based on it.
