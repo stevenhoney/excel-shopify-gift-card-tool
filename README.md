@@ -30,7 +30,7 @@ All that is required are your Private App's API Key and Password from the step a
 (No, I haven't uploaded valid credentials in a screenshot here, don't worry!)
 
 #### Inputting Cards to Be Generated
-Five columns are used to form the body of the post to the API:
+Five columns are used to create each gift card and form the body of each post to the API, all except the Value column are **optional**:
 
 ![Screenshot-2]
 
