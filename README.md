@@ -1,6 +1,5 @@
 # Excel Shopify Gift Card Tool
 ---
-<sub>Credit for actually getting the VBA bit to work reliably goes to [this chap on Upwork](https://www.upwork.com/freelancers/~018f69f455ef453569), this is the guy you should contact if you want to extend the functionality of the tool or create something similar for another Shopify API endpoint.</sub>
 
 ### What
 A macro enabled Excel workbook (XLSM) which will create a gift voucher per line in a Shopify Plus store using entered details (you must have a Plus level subscription to use the Gift Card API). Connects to Shopify via a private app which the user must first create (see Getting Started below).
@@ -56,6 +55,8 @@ You really shouldn't download and run XLSM files from the internet, ever. It wou
 As a minimal security step the VBA strips the values from the cells containing API credentials on both file open and close, it is slightly annoying to input them each time, but far less annoying than someone going rogue with the gift card api on your store!
 
 You can download the XLSM file from this repository and it will work fine, but you shouldn't and I told you not to :grin:
+
+<sub>Credit for actually getting the VBA bit to work reliably after I nearly went mad trying goes to [this chap on Upwork](https://www.upwork.com/freelancers/~018f69f455ef453569), this is the guy you should contact if you want to extend the functionality of the tool or create something similar for another Shopify API endpoint (I'm too busy - he is super smart and available!).</sub>
 
 [Screenshot-1]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-1.png
 [Screenshot-2]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-2.png
