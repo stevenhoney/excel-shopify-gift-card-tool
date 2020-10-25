@@ -42,7 +42,9 @@ Five columns are used to create each gift card and form the body of each post to
   - ##### Template
   Like `gift_card.birthday.liquid` Shopify gift card liquid templates are effectively standalone HTML pages, a template with a "Happy Birthday" message is an obvious example.
   - ##### Shopify Customer ID
-  Like `3363246964811` This is the number after the last / in the URL when viewing the customer record in the Shopify admin. Unfortunately Shopify does not include this in their default customer export, so a 3rd party app is needed in order to export Customer IDs to be used to assign gift cards to customers. I use and highly recommend [Excelify.io](https://excelify.io/) but there are [lots of alternatives](https://apps.shopify.com/search?q=csv+export#).
+  Like `3363246964811` This is the number after the last / in the URL when viewing the customer record in the Shopify admin. 
+  ![Screenshot-2]
+  Unfortunately Shopify does not include this in their default customer export, so a 3rd party app is needed in order to export Customer IDs to be used to assign gift cards to customers. I use and highly recommend [Excelify.io](https://excelify.io/) but there are [lots of alternatives](https://apps.shopify.com/search?q=csv+export#).
   
   When you assign a gift card to an existing customer it is sent to them via email immediately on creation, if you have their mobile/cell number in Shopify they will also be delivered via SMS.
   
@@ -60,3 +62,4 @@ You can download the XLSM file from this repository and it will work fine, but y
 
 [Screenshot-1]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-1.png
 [Screenshot-2]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-2.png
+[Screenshot-3]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-3.png
