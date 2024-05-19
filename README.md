@@ -2,7 +2,7 @@
 ---
 
 ### What
-A macro enabled Excel workbook (XLSM) which will create a gift voucher per line in a Shopify Plus store using entered details (you must have a Plus level subscription to use the Gift Card API). Connects to Shopify via a private app which the user must first create (see Getting Started below).
+A macro enabled Excel workbook (XLSM) which will create a gift voucher per line in a Shopify Plus store using entered details (you must have a Plus level subscription to use the Gift Card API). Connects to Shopify via a private/custom app which the user must first create (see Getting Started below).
 
 ### Why
 I half finished this to help me migrate gift cards from our legacy system when moving to Shopify Plus, then realized it's really useful to be able to bulk create and assign gift cards in lots of use cases, so decided I'd make a portable tool to share.
@@ -36,7 +36,11 @@ Six columns are used to create each gift card and form the body of each post to 
    Minimum 8 characters, max 20. Alphanumeric (a-z,0-9) only, must be globally unique.
   - ##### Template
   Like `gift_card.birthday.liquid` Shopify gift card liquid templates are effectively standalone HTML pages, a template with a "Happy Birthday" message is an obvious example. Note that the template suffix is an available variable in your gift card notification email template, so if you say wanted to run a promotional gift card send to a segment of customers you can set up a corresponding template and then include specific messaging in the notification email, e.g. if you created a template like gift_card.my-cool-promo.liquid then within the email template you can use 
-  ``` {% if gift_card.template_suffix == "my-cool-promo" %} //Promo specifc content goes here...{% endif %} ```
+       ``` 
+       {% if gift_card.template_suffix == "my-cool-promo" %}
+           //Promo specifc content goes here...
+       {% endif %}
+       ```
   - ##### Shopify Customer ID
   Like `7688563032372` This is the number after the last / in the URL when viewing the customer record in the Shopify admin.
   
