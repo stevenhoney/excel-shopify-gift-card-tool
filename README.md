@@ -48,11 +48,10 @@ Six columns are used to create each gift card and form the body of each post to 
   ![Screenshot-3]
   
 Unfortunately Shopify does not include this in their default customer export, so a 3rd party app is needed in order to export Customer IDs to be used to assign gift cards to customers. I use and highly recommend [Matrixify](https://matrixify.app/) but there are [lots of alternatives](https://apps.shopify.com/search?q=csv+export#).
+When you assign a gift card to an existing customer it is sent to them via email immediately on creation, if you have their mobile/cell number in Shopify they will also be delivered via SMS.
 
   - #### Expiry Date (YYYY-MM-DD)
   An expiry date for the created gift card, must be in the YYYY-MM-DD format, do not change the Excel cell format to a Date type, it is intentionally a Text type column and needs to be so.
-  
-When you assign a gift card to an existing customer it is sent to them via email immediately on creation, if you have their mobile/cell number in Shopify they will also be delivered via SMS.
   
 ## API Rate Limiting
 Plus stores have a 20 request per second limit on REST API requests, to ensure we stay under that the VBA script has a 65 millisecond sleep between requests built in, so makes a maximum of 15.4~ requests per second. In reality becasue there's time taken between the POST and response it's never quite this fast, but you can expect say a 1000 gift cards to take comfortably less than 2 minutes to create.
