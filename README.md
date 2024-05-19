@@ -35,9 +35,10 @@ Six columns are used to create each gift card and form the body of each post to 
   - ##### Code
    Minimum 8 characters, max 20. Alphanumeric (a-z,0-9) only, must be globally unique.
   - ##### Template
-  Like `gift_card.birthday.liquid` Shopify gift card liquid templates are effectively standalone HTML pages, a template with a "Happy Birthday" message is an obvious example. Note that the template suffix is an available variable in your gift card notification email template, so if you say wanted to run a promotional gift card send to a segment of customers you can set up a corresponding template and then include specific messaging in the notification email, e.g. if you created a template like gift_card.my-cool-promo.liquid then within the email template you can use ```liquid {% if gift_card.template_suffix == "my-cool-promo" %} //Promo specifc content goes here... {% endif %} ```
+  Like `gift_card.birthday.liquid` Shopify gift card liquid templates are effectively standalone HTML pages, a template with a "Happy Birthday" message is an obvious example. Note that the template suffix is an available variable in your gift card notification email template, so if you say wanted to run a promotional gift card send to a segment of customers you can set up a corresponding template and then include specific messaging in the notification email, e.g. if you created a template like gift_card.my-cool-promo.liquid then within the email template you can use 
+  ``` {% if gift_card.template_suffix == "my-cool-promo" %} //Promo specifc content goes here...{% endif %} ```
   - ##### Shopify Customer ID
-  Like `3363246964811` This is the number after the last / in the URL when viewing the customer record in the Shopify admin.
+  Like `7688563032372` This is the number after the last / in the URL when viewing the customer record in the Shopify admin.
   
   ![Screenshot-3]
   
