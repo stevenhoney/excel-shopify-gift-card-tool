@@ -22,7 +22,6 @@ All you need is the API Token from the step above and your xxxx.myshopify.com do
 
 ![Screenshot-1]
 
-(No, I haven't uploaded valid credentials in a screenshot here, don't worry!)
 
 #### Inputting Cards to Be Generated
 Six columns are used to create each gift card and form the body of each post to the API, all except the Value column are **optional**:
