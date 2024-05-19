@@ -20,7 +20,7 @@ I half finished this to help me migrate gift cards from our legacy system when m
 #### Settings
 All you need is the API Token from the step above and your xxxx.myshopify.com domain (just the xxxx bit).
 
-<img src="https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-1.png" width="400px" />
+![Screenshot-1]
 
 (No, I haven't uploaded valid credentials in a screenshot here, don't worry!)
 
@@ -38,8 +38,10 @@ Six columns are used to create each gift card and form the body of each post to 
   - ##### Template
   Like `gift_card.birthday.liquid` Shopify gift card liquid templates are effectively standalone HTML pages, a template with a "Happy Birthday" message is an obvious example. Note that the template suffix is an available variable in your gift card notification email template, so if you say wanted to run a promotional gift card send to a segment of customers you can set up a corresponding template and then include specific messaging in the notification email, e.g. if you created a template like gift_card.my-cool-promo.liquid then within the email template you can use ```liquid {% if gift_card.template_suffix == "my-cool-promo" %} //Promo specifc content goes here... {% endif %} ```
   - ##### Shopify Customer ID
-  Like `3363246964811` This is the number after the last / in the URL when viewing the customer record in the Shopify admin. 
+  Like `3363246964811` This is the number after the last / in the URL when viewing the customer record in the Shopify admin.
+  
   ![Screenshot-3]
+  
 Unfortunately Shopify does not include this in their default customer export, so a 3rd party app is needed in order to export Customer IDs to be used to assign gift cards to customers. I use and highly recommend [Matrixify](https://matrixify.app/) but there are [lots of alternatives](https://apps.shopify.com/search?q=csv+export#).
 
   - #### Expiry Date (YYYY-MM-DD)
