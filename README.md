@@ -13,7 +13,6 @@ I half finished this to help me migrate gift cards from our legacy system when m
 
 1. Follow the [instructions here](https://help.shopify.com/en/manual/apps/app-types/custom-apps) to create a custom app.
 2. Under API permissions you will need Gift Cards - select Read and Write, these are the only permissions your app will require.
-3. Hit Save.
 4. You will now have an API Token to use in the Excel tool - note this down somewhere, it is only shown once (you can uninstall then reinstall your custom app to geenrate a new token any time).
 
 ## Using the Tool
@@ -31,7 +30,7 @@ Six columns are used to create each gift card and form the body of each post to 
 ![Screenshot-2]
 
   - ##### Value
-   The tool will create a voucher for every row in the Value column with a something entered. Technically this is the only required column, although it is hard to imagine a use case for just creating batches of Gift Cards with randomly generated codes.
+   Decimal number, do not include currency symbols, do no change the cell formatting. The tool will create a voucher for every row in the Value column with a value entered. Technically this is the only required column, although it is hard to imagine a use case for just creating batches of Gift Cards with randomly generated codes.
   - ##### Note
    A long text type field, notes are visible when viewing the gift card in the Shopify admin. Unless you have some very specific customization(s) this is for internal use only. Linebreaks and basic formatting are preserved, HTML does not work.
   - ##### Code
@@ -42,11 +41,14 @@ Six columns are used to create each gift card and form the body of each post to 
   Like `3363246964811` This is the number after the last / in the URL when viewing the customer record in the Shopify admin. 
   ![Screenshot-3]
 Unfortunately Shopify does not include this in their default customer export, so a 3rd party app is needed in order to export Customer IDs to be used to assign gift cards to customers. I use and highly recommend [Matrixify](https://matrixify.app/) but there are [lots of alternatives](https://apps.shopify.com/search?q=csv+export#).
+
+  - #### Expiry Date (YYYY-MM-DD)
+  An expiry date for the created gift card, must be in the YYYY-MM-DD format, do not change the Excel cell format to a Date type, it is intentionally a Text type column and needs to be so.
   
 When you assign a gift card to an existing customer it is sent to them via email immediately on creation, if you have their mobile/cell number in Shopify they will also be delivered via SMS.
   
 ## API Rate Limiting
-Plus stores have a 20 request per second limit on REST API requests, to ensure we stay under that the VBA script has a 65 millisecond sleep between requests built in, so makes a maximum of 15.4~ requests per second. In fact becasue there's time taken between the POST and response it's never quite this fast, but you can expect say a 1000 gift cards to take comfortably less than 2 minutes to create.
+Plus stores have a 20 request per second limit on REST API requests, to ensure we stay under that the VBA script has a 65 millisecond sleep between requests built in, so makes a maximum of 15.4~ requests per second. In reality becasue there's time taken between the POST and response it's never quite this fast, but you can expect say a 1000 gift cards to take comfortably less than 2 minutes to create.
 
 ## Security
 You really shouldn't download and run XLSM files from the internet, ever. It would be pretty easy for me to have added a line in here that sends me gift card codes or API tokens for your store (I didn't). The VBA code that is used is uploaded here as a .bas file and ideally you or someone in your organization who understands VBA a little should check the code and create your own local version based upon it.
