@@ -66,3 +66,6 @@ You can download the XLSM file from this repository and it will work fine, but y
 [Screenshot-1]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-1.png
 [Screenshot-2]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-2.png
 [Screenshot-3]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-3.png
+
+## Extending / Customising The Tool
+If you want to do someting more complex with the tool that it doesn't currently do or generally want a hand with Shopify Plus tools/integrations/customisations feel free to give me a shout on [LinkedIn](https://www.linkedin.com/in/steve-honey-nz/).
