@@ -11,25 +11,22 @@ I half finished this to help me migrate gift cards from our legacy system when m
 
 ### Create Your Private App (One Time Process)
 
-1. In your Shopify admin navigate to Apps, then scroll to bottom of the page and click "Manage Private Apps"
-2. Click on "Create New Private App" at top right of screen
-3. Give your new app any name you like
-4. Clear any default permissions that are set (usually Read access to Products which is not required here)
-5. Scroll down the inactive permissions list to Gift Cards and select Read and Write, this is the only permission your app will require.
-6. Hit Save.
-7. You will now have an API Key and Password which can be entered in the corresponding cells on the Settings tab of the workbook.
+1. Follow the [instructions here](https://help.shopify.com/en/manual/apps/app-types/custom-apps) to create a custom app.
+2. Under API permissions you will need Gift Cards - select Read and Write, these are the only permissions your app will require.
+3. Hit Save.
+4. You will now have an API Token to use in the Excel tool - note this down somewhere, it is only shown once (you can uninstall then reinstall your custom app to geenrate a new token any time).
 
 ## Using the Tool
 
 #### Settings
-All that is required are your Private App's API Key and Password from the step above and your xxxx.myshopify.com domain (just the xxxx bit).
+All you need is the API Token from the step above and your xxxx.myshopify.com domain (just the xxxx bit).
 
 <img src="https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-1.png" width="400px" />
 
 (No, I haven't uploaded valid credentials in a screenshot here, don't worry!)
 
 #### Inputting Cards to Be Generated
-Five columns are used to create each gift card and form the body of each post to the API, all except the Value column are **optional**:
+Six columns are used to create each gift card and form the body of each post to the API, all except the Value column are **optional**:
 
 ![Screenshot-2]
 
@@ -40,25 +37,23 @@ Five columns are used to create each gift card and form the body of each post to
   - ##### Code
    Minimum 8 characters, max 20. Alphanumeric (a-z,0-9) only, must be globally unique.
   - ##### Template
-  Like `gift_card.birthday.liquid` Shopify gift card liquid templates are effectively standalone HTML pages, a template with a "Happy Birthday" message is an obvious example.
+  Like `gift_card.birthday.liquid` Shopify gift card liquid templates are effectively standalone HTML pages, a template with a "Happy Birthday" message is an obvious example. Note that the template suffix is an available variable in your gift card notification email template, so if you say wanted to run a promotional gift card send to a segment of customers you can set up a corresponding template and then include specific messaging in the notification email, e.g. if you created a template like gift_card.my-cool-promo.liquid then within the email template you can use ```liquid {% if gift_card.template_suffix == "my-cool-promo" %} //Promo specifc content goes here... {% endif %} ```
   - ##### Shopify Customer ID
   Like `3363246964811` This is the number after the last / in the URL when viewing the customer record in the Shopify admin. 
   ![Screenshot-3]
-  Unfortunately Shopify does not include this in their default customer export, so a 3rd party app is needed in order to export Customer IDs to be used to assign gift cards to customers. I use and highly recommend [Excelify.io](https://excelify.io/) but there are [lots of alternatives](https://apps.shopify.com/search?q=csv+export#).
+Unfortunately Shopify does not include this in their default customer export, so a 3rd party app is needed in order to export Customer IDs to be used to assign gift cards to customers. I use and highly recommend [Matrixify](https://matrixify.app/) but there are [lots of alternatives](https://apps.shopify.com/search?q=csv+export#).
   
-  When you assign a gift card to an existing customer it is sent to them via email immediately on creation, if you have their mobile/cell number in Shopify they will also be delivered via SMS.
+When you assign a gift card to an existing customer it is sent to them via email immediately on creation, if you have their mobile/cell number in Shopify they will also be delivered via SMS.
   
 ## API Rate Limiting
-The VBA script has a 0.5 second ause built in between calls (eg creating 100 gift cards should take just over 50 seconds~). At some upper number you will eventually hit a limit, I haven't dug into what that would be. At a total guess-timate creating a batch of a 1000 shouldn't be an issue, 10,000 might start stretching things? The script will show in the 'Tool Status' column clearly on what row/call any limit is reached - you could then delete the successful lines, wait a little and re-run again, repeat until done.
+Plus stores have a 20 request per second limit on REST API requests, to ensure we stay under that the VBA script has a 65 millisecond sleep between requests built in, so makes a maximum of 15.4~ requests per second. In fact becasue there's time taken between the POST and response it's never quite this fast, but you can expect say a 1000 gift cards to take comfortably less than 2 minutes to create.
 
 ## Security
-You really shouldn't download and run XLSM files from the internet, ever. It would be pretty easy for me to have added a line in here that sends me gift card codes for your store (I didn't). The VBA code that is used is uploaded here as a .bas file and ideally you or someone in your organization who understands VBA a little should check the code and create your own local version based upon it.
+You really shouldn't download and run XLSM files from the internet, ever. It would be pretty easy for me to have added a line in here that sends me gift card codes or API tokens for your store (I didn't). The VBA code that is used is uploaded here as a .bas file and ideally you or someone in your organization who understands VBA a little should check the code and create your own local version based upon it.
 
-As a minimal security step the VBA strips the values from the cells containing API credentials on both file open and close, it is slightly annoying to input them each time, but far less annoying than someone going rogue with the gift card api on your store!
+As a minimal security step the VBA strips the values from the cells containing the API Token on both file open and close, it is slightly annoying to input them each time, but far less annoying than someone going rogue with the gift card api on your store!
 
 You can download the XLSM file from this repository and it will work fine, but you shouldn't and I told you not to :grin:
-
-<sub>Credit for actually getting the VBA bit to work reliably after I nearly went mad trying goes to [this chap on Upwork](https://www.upwork.com/freelancers/~018f69f455ef453569), this is the guy you should contact if you want to extend the functionality of the tool or create something similar for another Shopify API endpoint (I'm too busy - he is super smart and available!).</sub>
 
 [Screenshot-1]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-1.png
 [Screenshot-2]: https://github.com/stevenhoney/excel-shopify-gift-card-tool/blob/master/Screenshot-2.png
